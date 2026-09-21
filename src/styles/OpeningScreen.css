@@ -1,0 +1,521 @@
+/* Opening — full-screen sealed envelope */
+
+.opening-screen {
+  --opening-duration: 4.2s;
+  --envelope-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --flap-ease: cubic-bezier(0.45, 0.05, 0.25, 1);
+  --draw-ease: cubic-bezier(0.22, 0.45, 0.18, 1);
+  --envelope-cream: #f4efe3;
+
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  width: 100%;
+  height: 100%;
+  min-height: 100svh;
+  min-height: 100dvh;
+  padding: 0;
+  overflow: hidden;
+  background: var(--envelope-cream);
+}
+
+.opening-screen__stage {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100svh;
+  min-height: 100dvh;
+  perspective: 1800px;
+  background: var(--envelope-cream);
+}
+
+/* Fills the whole screen — no empty bands above/below.
+   On tall phones, left/right edges may crop slightly. */
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  background: var(--envelope-cream);
+  animation: envelope-settle 1s var(--envelope-ease) both;
+}
+
+/* Pocket keeps the card behind the flaps — drawn out slowly */
+.envelope__pocket {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.envelope__card {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 0;
+  height: 94%;
+  overflow: hidden;
+  border-radius: 0.1rem;
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0, 78%, 0);
+  transform-origin: center bottom;
+  background: #f7f1e4;
+  box-shadow:
+    0 -0.35rem 1.1rem rgba(20, 8, 12, 0.12),
+    0 0.5rem 1.25rem rgba(20, 8, 12, 0.22);
+  will-change: transform;
+}
+
+.envelope__card-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.envelope__card-copy {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  width: min(72%, 18rem);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #5c2f36;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.envelope__card-eyebrow {
+  font-family: var(--font-label);
+  font-size: clamp(0.5rem, 1.6vw, 0.62rem);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #8a4f57;
+  margin-bottom: 0.65rem;
+}
+
+.envelope__card-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.75rem, 7vw, 3rem);
+  line-height: 0.95;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.envelope__card-amp {
+  font-size: 0.42em;
+  color: #b89a72;
+  margin: 0.12rem 0;
+}
+
+.envelope__card-rule {
+  width: 2.25rem;
+  height: 1px;
+  margin: 0.7rem auto;
+  background: linear-gradient(90deg, transparent, #d5c09a 20%, #c98f8c 50%, #d5c09a 80%, transparent);
+}
+
+.envelope__card-date {
+  font-family: var(--font-label);
+  font-size: clamp(0.52rem, 1.5vw, 0.64rem);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #5c2f36;
+}
+
+.envelope__flap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.envelope__flap--bottom {
+  z-index: 5;
+}
+
+.envelope__flap--left {
+  z-index: 4;
+}
+
+.envelope__flap--right {
+  z-index: 4;
+}
+
+.envelope__flap-top {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  transform-origin: 50% 0%;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.envelope__flap--top-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+
+.envelope__flap-top-back {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #efe6d4 0%, #e8dcc6 55%, #dfd0b6 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 52%);
+  transform: rotateX(180deg);
+  backface-visibility: hidden;
+}
+
+.envelope__assembled {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Wax seal — only interactive cue */
+.envelope__seal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 8;
+  width: clamp(5.25rem, 22vw, 7.25rem);
+  height: clamp(5.25rem, 22vw, 7.25rem);
+  padding: 0;
+  border: none;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  animation: seal-breathe 3.2s ease-in-out infinite;
+}
+
+.envelope__seal-pulse {
+  position: absolute;
+  inset: -28%;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 236, 210, 0.55) 0%,
+      rgba(232, 196, 150, 0.28) 28%,
+      rgba(201, 143, 140, 0.16) 52%,
+      transparent 72%
+    );
+  filter: blur(2px);
+  animation: seal-pulse-glow 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.envelope__seal-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 244, 220, 0.7) 0%,
+    rgba(213, 192, 154, 0.25) 40%,
+    transparent 70%
+  );
+  filter: blur(6px);
+  animation: seal-pulse-core 2.8s ease-in-out infinite;
+}
+
+.envelope__seal-pulse::after {
+  content: '';
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 1px rgba(255, 236, 210, 0.18),
+    0 0 22px 6px rgba(232, 196, 150, 0.28),
+    0 0 48px 14px rgba(201, 143, 140, 0.18);
+  animation: seal-pulse-ring 2.8s ease-in-out infinite;
+}
+
+.envelope__seal img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.envelope__seal:disabled {
+  cursor: default;
+  animation: none;
+}
+
+.envelope__seal:focus-visible {
+  outline: 1px solid rgba(181, 154, 114, 0.9);
+  outline-offset: 0.4rem;
+  border-radius: 50%;
+}
+
+/* ===== Open sequence ===== */
+.opening-screen--exiting {
+  pointer-events: none;
+  animation: opening-stage-exit var(--opening-duration) var(--envelope-ease) forwards;
+}
+
+.opening-screen--exiting .envelope__assembled {
+  animation: assembled-reveal 0.3s var(--envelope-ease) forwards;
+}
+
+.opening-screen--exiting .envelope__seal {
+  animation: seal-lift 0.85s var(--envelope-ease) forwards;
+}
+
+.opening-screen--exiting .envelope__seal img {
+  opacity: 1;
+}
+
+.opening-screen--exiting .envelope__seal-pulse {
+  animation: none;
+  opacity: 0;
+}
+
+.opening-screen--exiting .envelope__flap-top {
+  animation: flap-open 1.45s var(--flap-ease) 0.2s forwards;
+}
+
+.opening-screen--exiting .envelope__card {
+  /* stays behind side/bottom flaps — slides out of the pocket */
+  animation: card-draw 3.15s var(--draw-ease) 0.75s forwards;
+}
+
+.opening-screen--exiting .envelope__card-copy {
+  animation: card-copy-in 1.15s var(--envelope-ease) 2.35s forwards;
+}
+
+.opening-screen--exiting .envelope__flap--bottom,
+.opening-screen--exiting .envelope__flap--left,
+.opening-screen--exiting .envelope__flap--right {
+  animation: pocket-settle 1.4s var(--envelope-ease) 0.85s forwards;
+}
+
+@keyframes envelope-settle {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes seal-breathe {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.07);
+  }
+}
+
+@keyframes seal-pulse-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.18);
+  }
+}
+
+@keyframes seal-pulse-core {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes seal-pulse-ring {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes assembled-reveal {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes seal-lift {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(-50%, -62%) scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -120%) scale(0.72);
+    opacity: 0;
+  }
+}
+
+@keyframes flap-open {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-168deg);
+  }
+}
+
+@keyframes card-draw {
+  0% {
+    transform: translate3d(0, 78%, 0);
+  }
+  100% {
+    transform: translate3d(0, -2%, 0);
+  }
+}
+
+@keyframes card-copy-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -42%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes pocket-settle {
+  to {
+    filter: brightness(0.96);
+  }
+}
+
+@keyframes opening-stage-exit {
+  0%,
+  84% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(1.25px);
+  }
+}
+
+@media (min-width: 768px) {
+  .envelope__seal {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .envelope__card-copy {
+    width: 78%;
+    top: 37%;
+  }
+
+  .envelope__seal {
+    width: clamp(4.75rem, 26vw, 6rem);
+    height: clamp(4.75rem, 26vw, 6rem);
+  }
+
+  /* Prefer filling height; keep as much side embroidery as possible */
+  .envelope__assembled,
+  .envelope__flap {
+    object-fit: cover;
+    object-position: center 45%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .envelope,
+  .envelope__seal,
+  .envelope__seal-pulse {
+    animation: none !important;
+  }
+
+  .envelope {
+    opacity: 1 !important;
+  }
+
+  .envelope__seal {
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .opening-screen--exiting {
+    animation-duration: 0.01ms !important;
+  }
+
+  .opening-screen--exiting .envelope__flap-top,
+  .opening-screen--exiting .envelope__card,
+  .opening-screen--exiting .envelope__card-copy,
+  .opening-screen--exiting .envelope__seal,
+  .opening-screen--exiting .envelope__assembled {
+    animation: none !important;
+  }
+
+  .opening-screen--exiting .envelope__assembled {
+    opacity: 0;
+  }
+
+  .opening-screen--exiting .envelope__flap-top {
+    transform: rotateX(-168deg);
+  }
+
+  .opening-screen--exiting .envelope__card {
+    transform: translate3d(0, -2%, 0);
+  }
+
+  .opening-screen--exiting .envelope__card-copy {
+    opacity: 1;
+  }
+
+  .opening-screen--exiting .envelope__seal {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,217 @@
+.wedding-date {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: min(100svh, 54rem);
+  padding: var(--section-pad-y) var(--section-pad-x);
+  overflow: hidden;
+  color: var(--color-dark);
+}
+
+.wedding-date__atmosphere {
+  position: absolute;
+  inset: 0;
+  background: var(--section-date);
+  pointer-events: none;
+}
+
+.wedding-date__blob {
+  width: clamp(16rem, 48vw, 28rem);
+  height: clamp(16rem, 48vw, 28rem);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -52%);
+  opacity: 0.55;
+}
+
+.wedding-date__vine {
+  bottom: -4%;
+  left: -6%;
+  z-index: 1;
+}
+
+.wedding-date__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.wedding-date__heading {
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-deep-rose);
+  margin-bottom: clamp(1.75rem, 5vw, 2.5rem);
+}
+
+.wedding-date__calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.wedding-date__day {
+  font-family: var(--font-display);
+  font-size: var(--text-mega);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 0.85;
+  color: var(--color-burgundy);
+}
+
+.wedding-date__month {
+  font-family: var(--font-label);
+  font-size: clamp(0.78rem, 2.2vw, 0.92rem);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--color-dusty-rose);
+  margin-top: 0.55rem;
+}
+
+.wedding-date__year {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 8vw, 3.75rem);
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: var(--color-burgundy);
+  margin-top: 0.2rem;
+}
+
+.wedding-date__rule {
+  width: clamp(2.5rem, 10vw, 3.75rem);
+  height: 1px;
+  margin: clamp(1.75rem, 4.5vw, 2.5rem) 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-champagne) 20%,
+    var(--color-dusty-rose) 50%,
+    var(--color-champagne) 80%,
+    transparent
+  );
+}
+
+.wedding-date__countdown {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 5vw, 2rem) clamp(1.25rem, 4vw, 2rem);
+  width: 100%;
+  max-width: 18rem;
+}
+
+.wedding-date__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.wedding-date__value {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 8vw, 2.85rem);
+  font-style: italic;
+  line-height: 1;
+  color: var(--color-burgundy);
+  font-variant-numeric: tabular-nums;
+}
+
+.wedding-date__label {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-deep-rose);
+}
+
+.wedding-date__arrived {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 3.5vw, 1.55rem);
+  font-style: italic;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-burgundy);
+  max-width: 16rem;
+  line-height: 1.45;
+}
+
+.wedding-date__enter,
+.wedding-date__flower {
+  opacity: 0;
+}
+
+.wedding-date--in-view .wedding-date__flower {
+  animation: wedding-date-flower-in var(--duration-floral) var(--ease-elegant) 0.2s forwards;
+}
+
+.wedding-date--in-view .wedding-date__enter {
+  animation: ui-fade-rise var(--duration-enter) var(--ease-elegant) forwards;
+}
+
+.wedding-date--in-view .wedding-date__enter--1 {
+  animation-delay: 0.12s;
+}
+
+.wedding-date--in-view .wedding-date__enter--2 {
+  animation-delay: 0.28s;
+}
+
+.wedding-date--in-view .wedding-date__enter--3 {
+  animation-delay: 0.48s;
+}
+
+.wedding-date--in-view .wedding-date__enter--4 {
+  animation-delay: 0.62s;
+}
+
+@keyframes wedding-date-flower-in {
+  from {
+    opacity: 0;
+    transform: rotate(14deg) scaleX(-1) translate(0.75rem, -0.5rem);
+  }
+  to {
+    opacity: 0.5;
+    transform: rotate(14deg) scaleX(-1) translate(0, 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .wedding-date__countdown {
+    display: flex;
+    max-width: none;
+    width: auto;
+    gap: 0;
+  }
+
+  .wedding-date__unit {
+    min-width: 5.75rem;
+    padding: 0 clamp(1.35rem, 3vw, 2.25rem);
+    position: relative;
+  }
+
+  .wedding-date__unit:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 0.4rem;
+    right: 0;
+    width: 1px;
+    height: 2.5rem;
+    background: linear-gradient(180deg, transparent, var(--color-champagne), transparent);
+  }
+}
+
+@media (max-width: 430px) {
+  .wedding-date__flower {
+    width: 4.75rem;
+    right: -8%;
+    top: 10%;
+  }
+}

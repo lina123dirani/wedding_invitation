@@ -1,0 +1,217 @@
+/* Venue — champagne typography destination */
+
+.venue {
+  position: relative;
+  width: 100%;
+  padding: var(--section-pad-y) var(--section-pad-x);
+  overflow: hidden;
+  color: var(--color-burgundy);
+  text-align: center;
+}
+
+.venue__atmosphere {
+  position: absolute;
+  inset: 0;
+  background: var(--section-venue);
+  pointer-events: none;
+}
+
+.venue__blob {
+  width: clamp(14rem, 40vw, 24rem);
+  height: clamp(14rem, 40vw, 24rem);
+  top: 8%;
+  right: -8%;
+  opacity: 0.5;
+}
+
+.venue__vine {
+  bottom: 6%;
+  left: -5%;
+  z-index: 1;
+}
+
+.venue__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+.venue__header {
+  margin-bottom: clamp(2rem, 5vw, 2.75rem);
+}
+
+.venue__eyebrow {
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-deep-rose);
+  margin-bottom: clamp(0.85rem, 2.5vw, 1.15rem);
+}
+
+.venue__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-title);
+  text-transform: uppercase;
+  color: var(--color-burgundy);
+  margin-bottom: 1rem;
+}
+
+.venue__intro {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  line-height: var(--leading-body);
+  color: var(--color-muted);
+}
+
+.venue__rule {
+  width: clamp(2.25rem, 8vw, 3.25rem);
+  height: 1px;
+  margin: 0 auto clamp(1.75rem, 4vw, 2.35rem);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-champagne) 20%,
+    var(--color-dusty-rose) 50%,
+    var(--color-champagne) 80%,
+    transparent
+  );
+}
+
+.venue__meta {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 3.5vw, 1.6rem);
+  margin: 0 0 clamp(2rem, 5vw, 2.5rem);
+}
+
+.venue__meta-item {
+  margin: 0;
+}
+
+.venue__meta-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.venue__meta-label {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.45rem;
+}
+
+.venue__meta-value {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--color-dark);
+  margin: 0;
+}
+
+.venue__meta-value--name {
+  font-size: clamp(1.85rem, 6vw, 2.85rem);
+  font-style: italic;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-burgundy);
+  line-height: 1.05;
+}
+
+.venue__maps-btn {
+  min-width: 14rem;
+  border-color: var(--color-champagne);
+  background: rgba(255, 253, 252, 0.35);
+}
+
+.venue__maps-btn:hover:not(:disabled),
+.venue__maps-btn:focus-visible:not(:disabled) {
+  border-color: var(--color-burgundy);
+  background-color: rgba(255, 253, 252, 0.65);
+}
+
+.venue__enter,
+.venue__flower {
+  opacity: 0;
+}
+
+.venue--in-view .venue__flower {
+  animation: venue-flower-in var(--duration-floral) var(--ease-elegant) 0.2s forwards;
+}
+
+.venue--in-view .venue__enter--heading {
+  animation: venue-rise var(--duration-enter) var(--ease-elegant) 0.1s forwards;
+}
+
+.venue--in-view .venue__enter--details {
+  animation: venue-rise var(--duration-enter) var(--ease-elegant) 0.32s forwards;
+}
+
+@keyframes venue-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.9rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes venue-flower-in {
+  from {
+    opacity: 0;
+    transform: rotate(-8deg) translate(-1rem, 0.75rem);
+  }
+  to {
+    opacity: 0.45;
+    transform: rotate(-8deg) translate(0, 0);
+  }
+}
+
+@media (min-width: 900px) {
+  .venue {
+    padding: var(--section-pad-y-lg) var(--section-pad-x-lg);
+    min-height: min(80svh, 42rem);
+    display: flex;
+    align-items: center;
+  }
+
+  .venue__flower {
+    left: 6%;
+    bottom: 14%;
+  }
+}
+
+@media (max-width: 430px) {
+  .venue__flower {
+    width: 5.5rem;
+    left: -12%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .venue__enter,
+  .venue__flower {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .venue__flower {
+    transform: rotate(-8deg) !important;
+    opacity: 0.45 !important;
+  }
+}

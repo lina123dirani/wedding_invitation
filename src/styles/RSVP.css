@@ -1,0 +1,259 @@
+/* RSVP — deep burgundy dark theme */
+
+.rsvp {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: min(92svh, 46rem);
+  padding: var(--section-pad-y) var(--section-pad-x);
+  overflow: hidden;
+  color: var(--color-ivory);
+  text-align: center;
+}
+
+.rsvp__atmosphere {
+  position: absolute;
+  inset: 0;
+  background: var(--section-rsvp);
+  pointer-events: none;
+}
+
+.rsvp__blob {
+  width: clamp(18rem, 50vw, 32rem);
+  height: clamp(18rem, 50vw, 32rem);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.22;
+  background: radial-gradient(circle at 40% 40%, rgba(232, 183, 177, 0.45), transparent 70%);
+}
+
+.rsvp__vine {
+  top: 4%;
+  right: -7%;
+  z-index: 1;
+  filter: brightness(1.35) saturate(0.9);
+  mix-blend-mode: soft-light;
+}
+
+.rsvp__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rsvp__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: clamp(2.25rem, 6vw, 3.25rem) clamp(1.25rem, 4vw, 2.5rem);
+  background: rgba(248, 243, 234, 0.08);
+  border: 1px solid rgba(248, 243, 234, 0.38);
+  backdrop-filter: blur(6px);
+}
+
+.rsvp__eyebrow {
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-champagne);
+  margin-bottom: clamp(1.1rem, 3vw, 1.45rem);
+}
+
+.rsvp__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-title);
+  text-transform: uppercase;
+  color: var(--color-ivory);
+  margin-bottom: 1.15rem;
+}
+
+.rsvp__description {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  line-height: var(--leading-body);
+  color: rgba(248, 243, 234, 0.82);
+  max-width: 26rem;
+}
+
+.rsvp__rule {
+  width: clamp(2rem, 8vw, 2.75rem);
+  height: 1px;
+  margin: clamp(1.5rem, 4vw, 2rem) 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(216, 193, 159, 0.55) 20%,
+    rgba(248, 243, 234, 0.65) 50%,
+    rgba(216, 193, 159, 0.55) 80%,
+    transparent 100%
+  );
+}
+
+.rsvp__deadline {
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-cream);
+  margin-bottom: clamp(2rem, 5vw, 2.75rem);
+  max-width: 22rem;
+  line-height: var(--leading-body);
+}
+
+.rsvp__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 22rem;
+}
+
+.rsvp__btn {
+  width: 100%;
+}
+
+/* Dark-theme buttons */
+.rsvp .ui-btn {
+  border-color: rgba(248, 243, 234, 0.55);
+  color: var(--color-ivory);
+  background: transparent;
+}
+
+.rsvp .ui-btn:hover:not(:disabled),
+.rsvp .ui-btn:focus-visible:not(:disabled) {
+  background: var(--color-ivory);
+  border-color: var(--color-ivory);
+  color: var(--color-burgundy);
+}
+
+.rsvp .ui-btn--accent {
+  border-color: rgba(248, 243, 234, 0.65);
+  background: rgba(248, 243, 234, 0.12);
+}
+
+.rsvp .ui-btn--accent:hover:not(:disabled),
+.rsvp .ui-btn--accent:focus-visible:not(:disabled) {
+  background: var(--color-ivory);
+  border-color: var(--color-ivory);
+  color: var(--color-burgundy);
+}
+
+.rsvp .ui-btn--ghost:hover:not(:disabled),
+.rsvp .ui-btn--ghost:focus-visible:not(:disabled) {
+  background: rgba(248, 243, 234, 0.14);
+  border-color: var(--color-cream);
+  color: var(--color-ivory);
+}
+
+.rsvp .ui-btn:focus-visible {
+  outline-color: var(--color-cream);
+}
+
+/* Entrance */
+.rsvp__enter,
+.rsvp__flower {
+  opacity: 0;
+}
+
+.rsvp--in-view .rsvp__flower {
+  animation: rsvp-flower-in var(--duration-floral) var(--ease-elegant) 0.2s forwards;
+}
+
+.rsvp--in-view .rsvp__enter {
+  animation: rsvp-fade-rise var(--duration-enter) var(--ease-elegant) forwards;
+}
+
+.rsvp--in-view .rsvp__enter--1 {
+  animation-delay: 0.1s;
+}
+
+.rsvp--in-view .rsvp__enter--2 {
+  animation-delay: 0.24s;
+}
+
+.rsvp--in-view .rsvp__enter--3 {
+  animation-delay: 0.38s;
+}
+
+.rsvp--in-view .rsvp__enter--4 {
+  animation-delay: 0.5s;
+}
+
+.rsvp--in-view .rsvp__enter--5 {
+  animation-delay: 0.62s;
+}
+
+.rsvp--in-view .rsvp__enter--6 {
+  animation-delay: 0.76s;
+}
+
+@keyframes rsvp-fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.85rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rsvp-flower-in {
+  from {
+    opacity: 0;
+    transform: rotate(-16deg) scaleX(-1) translate(0.75rem, -0.5rem);
+  }
+  to {
+    opacity: 0.28;
+    transform: rotate(-16deg) scaleX(-1) translate(0, 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .rsvp__actions {
+    flex-direction: row;
+    max-width: none;
+    width: auto;
+    gap: 1rem;
+  }
+
+  .rsvp__btn {
+    width: auto;
+    min-width: 13.5rem;
+    padding: 1.05rem 1.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .rsvp {
+    min-height: min(84svh, 48rem);
+    padding: var(--section-pad-y-lg) var(--section-pad-x-lg);
+  }
+
+  .rsvp__panel {
+    padding: 3.5rem 3.75rem;
+  }
+
+  .rsvp__flower {
+    right: 2%;
+    top: 8%;
+  }
+}

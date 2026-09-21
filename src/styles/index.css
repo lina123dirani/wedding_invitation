@@ -1,0 +1,236 @@
+:root {
+  /*
+   * Luxury stationery palette
+   * Burgundy + off-white / ivory (no pink section washes)
+   */
+  --color-ivory: #f7f2e9;
+  --color-cream: #efe6d8;
+  --color-beige: #e4d8c6;
+  --color-blush: #e8ddd0;
+  --color-dusty-rose: #8a5a62;
+  --color-muted-rose: #6e4349;
+  --color-peach: #e2d5c4;
+  --color-burgundy: #5c2f36;
+  --color-wine: #6e3a42;
+  --color-deep-rose: #6e3a42;
+  --color-champagne: #d5c09a;
+  --color-champagne-deep: #b89a72;
+  --color-dark: #3a282c;
+  --color-muted: #7a6468;
+  --color-white: #fffdfb;
+
+  /* Soft sage kept only as a quiet supporting tone */
+  --color-sage: #b3b8a8;
+  --color-olive: #7e8a68;
+
+  /* Semantic tokens */
+  --color-background: var(--color-ivory);
+  --color-background-deep: var(--color-cream);
+  --color-surface: var(--color-white);
+  --color-text: var(--color-burgundy);
+  --color-border: var(--color-champagne);
+  --color-accent: var(--color-wine);
+  --color-accent-soft: var(--color-blush);
+  --color-highlight: var(--color-ivory);
+  --color-overlay: rgba(58, 40, 44, 0.86);
+
+  /* Legacy aliases */
+  --color-bg: var(--color-background);
+  --color-bg-deep: var(--color-background-deep);
+  --color-ink: var(--color-text);
+  --color-line: var(--color-border);
+  --color-botanical: var(--color-wine);
+  --color-botanical-soft: var(--color-blush);
+
+  /* Section rhythm — ivory / cream / burgundy only */
+  --section-opening: var(--color-burgundy);
+  --section-date: linear-gradient(165deg, #f7f2e9 0%, #f1e8dc 48%, #ebe0d0 100%);
+  --section-story: linear-gradient(180deg, #f7f2e9 0%, #f3ebe0 55%, #efe6d8 100%);
+  --section-timeline: linear-gradient(165deg, #f4efe6 0%, #ebe3d6 50%, #e4d9c8 100%);
+  --section-gallery: var(--color-ivory);
+  --section-venue: linear-gradient(160deg, #f7f2e9 0%, #efe6d8 45%, #e8dcc8 100%);
+  --section-dress: linear-gradient(165deg, #f3ebe0 0%, #ebe3d6 50%, #e4d9c8 100%);
+  --section-rsvp: linear-gradient(165deg, #6e3a42 0%, #5c2f36 45%, #4a262c 100%);
+  --section-closing: linear-gradient(175deg, #f7f2e9 0%, #f1e8dc 50%, #ebe0d0 100%);
+
+  /* Typography — Arabic invitation hierarchy */
+  --font-display: 'Amiri', 'Times New Roman', Times, serif;
+  --font-body: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+  --font-label: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+
+  --text-xs: clamp(0.58rem, 1.6vw, 0.64rem);
+  --text-sm: clamp(0.62rem, 1.8vw, 0.7rem);
+  --text-md: clamp(0.9rem, 2.4vw, 1rem);
+  --text-lg: clamp(1.02rem, 2.8vw, 1.125rem);
+  --text-xl: clamp(1.85rem, 6vw, 2.85rem);
+  --text-2xl: clamp(2.15rem, 7.2vw, 3.6rem);
+  --text-display: clamp(3rem, 10vw, 5.5rem);
+  --text-hero: clamp(2.65rem, 10vw, 5rem);
+  --text-mega: clamp(4rem, 16vw, 8rem);
+
+  /* Labels — keep tracking softer for Arabic */
+  --tracking-eyebrow: 0.12em;
+  --tracking-button: 0.08em;
+  --tracking-title: 0.02em;
+
+  --leading-tight: 1.05;
+  --leading-snug: 1.35;
+  --leading-body: 1.7;
+
+  /* Spacing */
+  --space-1: 0.35rem;
+  --space-2: 0.65rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 2.75rem;
+  --space-7: 3.5rem;
+  --space-8: 4.75rem;
+
+  --section-pad-y: clamp(4.5rem, 11vw, 7.5rem);
+  --section-pad-x: clamp(1.25rem, 5vw, 3rem);
+  --section-pad-y-lg: clamp(5.75rem, 11vh, 8.25rem);
+  --section-pad-x-lg: clamp(2rem, 5vw, 4rem);
+  --section-max: 68rem;
+
+  /* Motion */
+  --ease-elegant: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.35s;
+  --duration-hover: 0.45s;
+  --duration-enter: 1.15s;
+  --duration-floral: 1.35s;
+  --duration-exit: 1.4s;
+  --reveal-distance: 0.85rem;
+
+  --atmosphere-warm: rgba(247, 242, 233, 0.94);
+  --atmosphere-blush: rgba(92, 47, 54, 0.06);
+  --atmosphere-accent: rgba(110, 58, 66, 0.1);
+
+  /* Paper grain helper */
+  --texture-grain:
+    radial-gradient(rgba(58, 40, 44, 0.035) 0.55px, transparent 0.65px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  min-height: 100svh;
+  line-height: var(--leading-body);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--color-text);
+  background-color: var(--color-ivory);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  direction: rtl;
+  text-align: right;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+/* Organic romantic shapes */
+.organic-blob {
+  position: absolute;
+  border-radius: 62% 38% 46% 54% / 48% 42% 58% 52%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(0.5px);
+}
+
+.organic-blob--blush {
+  background: radial-gradient(circle at 35% 35%, rgba(110, 58, 66, 0.18), rgba(92, 47, 54, 0.08));
+}
+
+.organic-blob--sage {
+  background: radial-gradient(circle at 40% 40%, rgba(168, 179, 158, 0.5), rgba(126, 138, 104, 0.16));
+}
+
+.organic-blob--peach {
+  background: radial-gradient(circle at 40% 30%, rgba(233, 184, 155, 0.55), rgba(216, 193, 159, 0.2));
+}
+
+.organic-blob--champagne {
+  background: radial-gradient(circle at 45% 40%, rgba(216, 193, 159, 0.55), rgba(242, 229, 213, 0.25));
+}
+
+@media (max-width: 374px) {
+  :root {
+    --section-pad-y: clamp(3.75rem, 12vw, 5.5rem);
+    --section-pad-x: 1.1rem;
+    --text-hero: clamp(2.45rem, 13vw, 3.5rem);
+  }
+
+  .ui-btn {
+    min-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [class*='__enter'],
+  [class*='__reveal'],
+  [class*='__floral'],
+  [class*='__botanical'],
+  [class*='__accent'],
+  [class*='__atmosphere'],
+  [class*='__axis'],
+  [class*='__vine'],
+  [class*='__layout']::before {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+}

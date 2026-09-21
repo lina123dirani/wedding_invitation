@@ -1,0 +1,55 @@
+.vine-decoration {
+  --vine-opacity: 0.48;
+  --vine-rotate: 0deg;
+
+  position: absolute;
+  z-index: 1;
+  width: clamp(5.5rem, 18vw, 9rem);
+  height: auto;
+  max-width: min(42vw, 14rem);
+  pointer-events: none;
+  user-select: none;
+  object-fit: contain;
+  opacity: var(--vine-opacity);
+  transform: rotate(var(--vine-rotate));
+  transform-origin: center center;
+}
+
+.vine-decoration--xs {
+  width: clamp(3.5rem, 12vw, 5rem);
+}
+
+.vine-decoration--sm {
+  width: clamp(4.75rem, 15vw, 7.25rem);
+}
+
+.vine-decoration--md {
+  width: clamp(6.5rem, 20vw, 10.5rem);
+}
+
+.vine-decoration--lg {
+  width: clamp(9rem, 28vw, 15rem);
+}
+
+.vine-decoration--xl {
+  width: clamp(11rem, 34vw, 18rem);
+}
+
+.vine-decoration--flip-x {
+  transform: rotate(var(--vine-rotate)) scaleX(-1);
+}
+
+.vine-decoration--flip-y {
+  transform: rotate(var(--vine-rotate)) scaleY(-1);
+}
+
+.vine-decoration--flip-x.vine-decoration--flip-y {
+  transform: rotate(var(--vine-rotate)) scale(-1);
+}
+
+@media (max-width: 430px) {
+  .vine-decoration {
+    max-width: min(48vw, 11.5rem);
+    opacity: calc(var(--vine-opacity) * 0.92);
+  }
+}

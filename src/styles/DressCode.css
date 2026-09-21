@@ -1,0 +1,201 @@
+/* Dress Code — warm peach editorial */
+
+.dress-code {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: min(88svh, 40rem);
+  padding: var(--section-pad-y) var(--section-pad-x);
+  overflow: hidden;
+  color: var(--color-dark);
+  text-align: center;
+}
+
+.dress-code__atmosphere {
+  position: absolute;
+  inset: 0;
+  background: var(--section-dress);
+  pointer-events: none;
+}
+
+.dress-code__blob {
+  width: clamp(16rem, 45vw, 26rem);
+  height: clamp(16rem, 45vw, 26rem);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -48%);
+  opacity: 0.45;
+}
+
+.dress-code__vine {
+  bottom: -4%;
+  right: -8%;
+  z-index: 1;
+}
+
+.dress-code__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 34rem;
+}
+
+.dress-code__eyebrow {
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-deep-rose);
+  margin-bottom: clamp(1.15rem, 3vw, 1.5rem);
+}
+
+.dress-code__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-title);
+  text-transform: uppercase;
+  color: var(--color-burgundy);
+}
+
+.dress-code__rule {
+  width: clamp(2rem, 8vw, 2.75rem);
+  height: 1px;
+  margin: clamp(1.5rem, 4vw, 2rem) 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-champagne) 20%,
+    var(--color-champagne) 80%,
+    transparent 100%
+  );
+}
+
+.dress-code__description {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  line-height: var(--leading-body);
+  color: var(--color-muted);
+  max-width: 26rem;
+  margin-bottom: clamp(1.75rem, 4.5vw, 2.35rem);
+}
+
+.dress-code__attire {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 9vw, 4.25rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-burgundy);
+  line-height: 1;
+  padding: 1.15rem 0.5rem;
+  border-top: 1px solid var(--color-champagne);
+  border-bottom: 1px solid var(--color-champagne);
+}
+
+.dress-code__enter,
+.dress-code__flower {
+  opacity: 0;
+}
+
+.dress-code--in-view .dress-code__flower {
+  animation: dress-code-flower-in var(--duration-floral) var(--ease-elegant) 0.2s forwards;
+}
+
+.dress-code--in-view .dress-code__enter {
+  animation: dress-code-fade-rise var(--duration-enter) var(--ease-elegant) forwards;
+}
+
+.dress-code--in-view .dress-code__enter--1 {
+  animation-delay: 0.1s;
+}
+
+.dress-code--in-view .dress-code__enter--2 {
+  animation-delay: 0.24s;
+}
+
+.dress-code--in-view .dress-code__enter--3 {
+  animation-delay: 0.38s;
+}
+
+.dress-code--in-view .dress-code__enter--4 {
+  animation-delay: 0.5s;
+}
+
+.dress-code--in-view .dress-code__enter--5 {
+  animation-delay: 0.66s;
+}
+
+@keyframes dress-code-fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.85rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dress-code-flower-in {
+  from {
+    opacity: 0;
+    transform: rotate(24deg) scaleX(-1) translate(1rem, 0.75rem);
+  }
+  to {
+    opacity: 0.52;
+    transform: rotate(24deg) scaleX(-1) translate(0, 0);
+  }
+}
+
+@media (min-width: 900px) {
+  .dress-code {
+    min-height: min(80svh, 42rem);
+    padding: clamp(6.5rem, 12vh, 9rem) clamp(2rem, 5vw, 4rem);
+  }
+
+  .dress-code__inner {
+    max-width: 38rem;
+  }
+
+  .dress-code__attire {
+    font-size: clamp(3rem, 6vw, 4.75rem);
+    padding: 1.35rem 0.75rem;
+  }
+
+  .dress-code__flower {
+    right: -2%;
+    bottom: -2%;
+  }
+}
+
+@media (max-width: 430px) {
+  .dress-code__flower {
+    width: 8rem;
+    right: -16%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dress-code__enter,
+  .dress-code__flower {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .dress-code__flower {
+    transform: rotate(24deg) scaleX(-1) !important;
+    opacity: 0.52 !important;
+  }
+}

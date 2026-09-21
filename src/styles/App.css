@@ -1,0 +1,22 @@
+.app-shell {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.app-shell:not(.app-shell--open) {
+  overflow: hidden;
+  height: 100svh;
+}
+
+.invitation {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+}
+
+body.invitation-locked,
+body.lightbox-open {
+  overflow: hidden;
+}
