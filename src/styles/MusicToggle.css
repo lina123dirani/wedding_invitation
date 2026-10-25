@@ -1,0 +1,60 @@
+.music-toggle {
+  position: fixed;
+  z-index: 60;
+  inset-inline-end: 1.1rem;
+  bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px));
+  pointer-events: none;
+}
+
+.music-toggle__btn {
+  pointer-events: auto;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid color-mix(in srgb, var(--color-champagne) 70%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-ivory) 88%, transparent);
+  color: var(--color-burgundy);
+  box-shadow: 0 10px 28px rgba(58, 40, 44, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition:
+    transform 220ms ease,
+    background-color 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.music-toggle__btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(58, 40, 44, 0.2);
+}
+
+.music-toggle__btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.music-toggle__btn--on {
+  background: var(--color-burgundy);
+  color: var(--color-ivory);
+  border-color: transparent;
+}
+
+.music-toggle__icon {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+@media (max-width: 480px) {
+  .music-toggle {
+    inset-inline-end: 0.85rem;
+    bottom: calc(0.85rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .music-toggle__btn {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}

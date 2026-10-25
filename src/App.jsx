@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import OpeningScreen from './components/OpeningScreen'
+import MusicToggle from './components/MusicToggle'
 import Hero from './sections/Hero'
 import WeddingDate from './sections/WeddingDate'
 import OurStory from './sections/OurStory'
@@ -52,6 +53,8 @@ function App() {
         <RSVP />
         <Closing />
       </main>
+
+      <MusicToggle />
 
       {!isOpen && (
         <OpeningScreen
