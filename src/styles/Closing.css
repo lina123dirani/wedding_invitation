@@ -1,4 +1,4 @@
-/* Closing — warm cream farewell + studio credit */
+﻿/* Closing — warm cream farewell + studio credit */
 
 .closing {
   position: relative;
@@ -59,17 +59,15 @@
   font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--color-deep-rose);
   margin-bottom: clamp(1.1rem, 3vw, 1.5rem);
 }
 
 .closing__title {
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 5.5vw, 2.85rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.15;
+  font-size: clamp(2.25rem, 6.5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.2;
   letter-spacing: var(--tracking-title);
   color: var(--color-burgundy);
   margin-bottom: clamp(1.35rem, 3.5vw, 1.85rem);
@@ -108,13 +106,11 @@
 
 .closing__signature {
   font-family: var(--font-display);
-  font-size: clamp(2.35rem, 8vw, 4rem);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: clamp(2.75rem, 9vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
   color: var(--color-burgundy);
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .closing__studio {
@@ -143,8 +139,7 @@
   font-family: var(--font-label);
   font-size: clamp(0.54rem, 1.5vw, 0.62rem);
   font-weight: 500;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
   color: var(--color-muted);
   margin-bottom: clamp(0.85rem, 2.5vw, 1.15rem);
 }

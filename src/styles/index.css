@@ -54,28 +54,28 @@
   --section-closing: linear-gradient(175deg, #f7f2e9 0%, #f1e8dc 50%, #ebe0d0 100%);
 
   /* Typography — Arabic invitation hierarchy */
-  --font-display: 'Amiri', 'Times New Roman', Times, serif;
+  --font-display: 'Scheherazade New', 'Amiri', 'Times New Roman', Times, serif;
   --font-body: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
   --font-label: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
 
-  --text-xs: clamp(0.58rem, 1.6vw, 0.64rem);
-  --text-sm: clamp(0.62rem, 1.8vw, 0.7rem);
-  --text-md: clamp(0.9rem, 2.4vw, 1rem);
-  --text-lg: clamp(1.02rem, 2.8vw, 1.125rem);
-  --text-xl: clamp(1.85rem, 6vw, 2.85rem);
-  --text-2xl: clamp(2.15rem, 7.2vw, 3.6rem);
-  --text-display: clamp(3rem, 10vw, 5.5rem);
-  --text-hero: clamp(2.65rem, 10vw, 5rem);
-  --text-mega: clamp(4rem, 16vw, 8rem);
+  --text-xs: clamp(0.7rem, 1.8vw, 0.78rem);
+  --text-sm: clamp(0.78rem, 2vw, 0.88rem);
+  --text-md: clamp(1.05rem, 2.6vw, 1.18rem);
+  --text-lg: clamp(1.15rem, 3vw, 1.3rem);
+  --text-xl: clamp(2.15rem, 6.5vw, 3.25rem);
+  --text-2xl: clamp(2.55rem, 7.8vw, 4.1rem);
+  --text-display: clamp(3.4rem, 11vw, 6.2rem);
+  --text-hero: clamp(3rem, 11vw, 5.6rem);
+  --text-mega: clamp(4.5rem, 17vw, 9rem);
 
-  /* Labels — keep tracking softer for Arabic */
-  --tracking-eyebrow: 0.12em;
-  --tracking-button: 0.08em;
-  --tracking-title: 0.02em;
+  /* Labels — soft tracking so Arabic stays clear */
+  --tracking-eyebrow: 0.06em;
+  --tracking-button: 0.04em;
+  --tracking-title: 0.01em;
 
-  --leading-tight: 1.05;
-  --leading-snug: 1.35;
-  --leading-body: 1.7;
+  --leading-tight: 1.12;
+  --leading-snug: 1.4;
+  --leading-body: 1.85;
 
   /* Spacing */
   --space-1: 0.35rem;
@@ -95,12 +95,12 @@
 
   /* Motion */
   --ease-elegant: cubic-bezier(0.22, 1, 0.36, 1);
-  --duration-fast: 0.35s;
-  --duration-hover: 0.45s;
-  --duration-enter: 1.15s;
-  --duration-floral: 1.35s;
-  --duration-exit: 1.4s;
-  --reveal-distance: 0.85rem;
+  --duration-fast: 0.4s;
+  --duration-hover: 0.55s;
+  --duration-enter: 1.35s;
+  --duration-floral: 1.55s;
+  --duration-exit: 1.5s;
+  --reveal-distance: 1.15rem;
 
   --atmosphere-warm: rgba(247, 242, 233, 0.94);
   --atmosphere-blush: rgba(92, 47, 54, 0.06);
@@ -137,6 +137,7 @@ body {
   line-height: var(--leading-body);
   font-family: var(--font-body);
   font-size: var(--text-md);
+  font-weight: 500;
   color: var(--color-text);
   background-color: var(--color-ivory);
   -webkit-font-smoothing: antialiased;
@@ -144,6 +145,14 @@ body {
   overflow-x: hidden;
   direction: rtl;
   text-align: right;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-wrap: balance;
 }
 
 img,
@@ -200,7 +209,7 @@ a {
   :root {
     --section-pad-y: clamp(3.75rem, 12vw, 5.5rem);
     --section-pad-x: 1.1rem;
-    --text-hero: clamp(2.45rem, 13vw, 3.5rem);
+    --text-hero: clamp(2.75rem, 14vw, 3.75rem);
   }
 
   .ui-btn {

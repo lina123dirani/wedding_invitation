@@ -1,4 +1,4 @@
-/* Our Story — typography-led editorial */
+﻿/* Our Story — typography-led editorial */
 
 .our-story {
   position: relative;
@@ -57,7 +57,6 @@
   font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--color-deep-rose);
   margin-bottom: clamp(0.9rem, 2.5vw, 1.25rem);
 }
@@ -65,11 +64,9 @@
 .our-story__title {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  font-weight: 400;
-  font-style: italic;
+  font-weight: 700;
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-title);
-  text-transform: uppercase;
   color: var(--color-burgundy);
 }
 

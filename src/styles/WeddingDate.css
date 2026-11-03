@@ -1,4 +1,4 @@
-.wedding-date {
+﻿.wedding-date {
   position: relative;
   display: flex;
   align-items: center;
@@ -47,7 +47,6 @@
   font-family: var(--font-label);
   font-size: var(--text-sm);
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--color-deep-rose);
   margin-bottom: clamp(1.75rem, 5vw, 2.5rem);
 }
@@ -62,26 +61,25 @@
 .wedding-date__day {
   font-family: var(--font-display);
   font-size: var(--text-mega);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 0.85;
+  font-weight: 700;
+  line-height: 0.9;
   color: var(--color-burgundy);
 }
 
 .wedding-date__month {
   font-family: var(--font-label);
-  font-size: clamp(0.78rem, 2.2vw, 0.92rem);
-  letter-spacing: 0.42em;
-  text-transform: uppercase;
+  font-size: clamp(1rem, 2.8vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
   color: var(--color-dusty-rose);
   margin-top: 0.55rem;
 }
 
 .wedding-date__year {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 8vw, 3.75rem);
-  font-style: italic;
-  letter-spacing: 0.08em;
+  font-size: clamp(2.75rem, 9vw, 4.25rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
   color: var(--color-burgundy);
   margin-top: 0.2rem;
 }
@@ -127,8 +125,7 @@
 .wedding-date__label {
   font-family: var(--font-label);
   font-size: var(--text-xs);
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
   color: var(--color-deep-rose);
 }
 
@@ -136,8 +133,7 @@
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 3.5vw, 1.55rem);
   font-style: italic;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
   color: var(--color-burgundy);
   max-width: 16rem;
   line-height: 1.45;

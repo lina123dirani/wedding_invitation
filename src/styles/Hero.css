@@ -57,10 +57,9 @@
 
 .hero__eyebrow {
   font-family: var(--font-label);
-  font-size: clamp(0.52rem, 1.5vw, 0.62rem);
-  font-weight: 500;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
+  font-size: clamp(0.78rem, 2vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
   color: var(--color-deep-rose);
   margin-bottom: clamp(0.75rem, 2vh, 1.1rem);
 }
@@ -80,21 +79,20 @@
 
 .hero__name {
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 7.5vw, 2.85rem);
-  font-style: italic;
-  font-weight: 400;
-  line-height: 0.94;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  font-size: clamp(2.35rem, 9vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
   color: var(--color-burgundy);
+  text-shadow: 0 1px 0 rgba(255, 253, 251, 0.35);
 }
 
 .hero__ampersand {
   font-family: var(--font-display);
-  font-size: clamp(0.85rem, 2.5vw, 1.15rem);
-  font-style: italic;
+  font-size: clamp(1.15rem, 3.2vw, 1.55rem);
+  font-weight: 600;
   color: var(--color-champagne-deep);
-  margin: 0.12rem 0 0.2rem;
+  margin: 0.18rem 0 0.28rem;
   line-height: 1;
 }
 
@@ -114,21 +112,21 @@
 
 .hero__date {
   font-family: var(--font-label);
-  font-size: clamp(0.56rem, 1.5vw, 0.66rem);
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
+  font-size: clamp(0.85rem, 2.2vw, 1.05rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
   color: var(--color-burgundy);
   margin-bottom: clamp(0.65rem, 1.8vh, 0.95rem);
 }
 
 .hero__invite {
-  font-family: var(--font-label);
-  font-size: clamp(0.5rem, 1.35vw, 0.58rem);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  line-height: 1.65;
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 2.4vw, 1.1rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.75;
   color: var(--color-muted);
-  max-width: 16rem;
+  max-width: 18rem;
 }
 
 .hero__scroll {
@@ -145,9 +143,9 @@
 
 .hero__scroll-label {
   font-family: var(--font-label);
-  font-size: 0.52rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   color: var(--color-deep-rose);
 }
 
@@ -164,7 +162,7 @@
 }
 
 .hero--revealed .hero__reveal {
-  animation: hero-rise 1.15s var(--ease-elegant) forwards;
+  animation: hero-rise var(--duration-enter) var(--ease-elegant) forwards;
 }
 
 .hero--revealed.hero--awakening .hero__reveal--1 {
@@ -230,11 +228,13 @@
 @keyframes hero-rise {
   from {
     opacity: 0;
-    transform: translateY(0.65rem);
+    transform: translateY(1.1rem) scale(0.985);
+    filter: blur(2px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    filter: blur(0);
   }
 }
 

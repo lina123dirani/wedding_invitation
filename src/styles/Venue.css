@@ -1,4 +1,4 @@
-/* Venue — champagne typography destination */
+﻿/* Venue — champagne typography destination */
 
 .venue {
   position: relative;
@@ -47,7 +47,6 @@
   font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--color-deep-rose);
   margin-bottom: clamp(0.85rem, 2.5vw, 1.15rem);
 }
@@ -55,11 +54,9 @@
 .venue__title {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.1;
+  font-weight: 700;
+  line-height: 1.15;
   letter-spacing: var(--tracking-title);
-  text-transform: uppercase;
   color: var(--color-burgundy);
   margin-bottom: 1rem;
 }
@@ -104,30 +101,28 @@
 
 .venue__meta-label {
   font-family: var(--font-label);
-  font-size: 0.58rem;
-  font-weight: 400;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
   color: var(--color-muted);
   margin-bottom: 0.45rem;
 }
 
 .venue__meta-value {
   font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: 400;
+  font-size: clamp(1.25rem, 3.5vw, 1.55rem);
+  font-weight: 600;
   line-height: 1.45;
   color: var(--color-dark);
   margin: 0;
 }
 
 .venue__meta-value--name {
-  font-size: clamp(1.85rem, 6vw, 2.85rem);
-  font-style: italic;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: clamp(2.35rem, 7vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
   color: var(--color-burgundy);
-  line-height: 1.05;
+  line-height: 1.1;
 }
 
 .venue__maps-btn {

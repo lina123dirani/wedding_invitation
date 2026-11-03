@@ -1,4 +1,4 @@
-/* Dress Code — warm peach editorial */
+﻿/* Dress Code — warm peach editorial */
 
 .dress-code {
   position: relative;
@@ -50,7 +50,6 @@
   font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--color-deep-rose);
   margin-bottom: clamp(1.15rem, 3vw, 1.5rem);
 }
@@ -58,11 +57,9 @@
 .dress-code__title {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  font-weight: 400;
-  font-style: italic;
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: var(--tracking-title);
-  text-transform: uppercase;
   color: var(--color-burgundy);
 }
 
@@ -94,8 +91,7 @@
   font-size: clamp(2.4rem, 9vw, 4.25rem);
   font-weight: 400;
   font-style: italic;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
   color: var(--color-burgundy);
   line-height: 1;
   padding: 1.15rem 0.5rem;

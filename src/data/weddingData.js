@@ -40,13 +40,14 @@ const weddingData = {
   venue: {
     eyebrow: 'المكان',
     title: 'أين نحتفل',
-    intro: 'يسعدنا أن نحتفل بهذا اليوم الخاص بوجودكم معنا.',
-    name: 'اسم القاعة',
-    address: 'عنوان القاعة',
+    intro: 'يسعدنا أن نحتفل بهذا اليوم الخاص بوجودكم معنا في صالة روفانا بدمشق.',
+    name: 'صالة روفانا',
+    address: 'دمشق — كفرسوسة',
     date: '٢٠ حزيران ٢٠٢٧',
     time: '٤:٠٠ مساءً',
-    mapsUrl: 'https://maps.google.com/',
-    mapsLabel: 'عرض على خرائط Google',
+    mapsUrl:
+      'https://www.google.com/maps/search/?api=1&query=%D8%B5%D8%A7%D9%84%D8%A9+%D8%B1%D9%88%D9%81%D8%A7%D9%86%D8%A7+%D8%AF%D9%85%D8%B4%D9%82',
+    mapsLabel: 'فتح الموقع على الخريطة',
     labels: {
       venue: 'القاعة',
       address: 'العنوان',
@@ -65,15 +66,16 @@ const weddingData = {
     eyebrow: 'تأكيد الحضور',
     title: 'هل ستشاركوننا؟',
     description:
-      'يرجى إعلامنا إن كنتم ستشاركوننا الاحتفال بيومنا الخاص.',
+      'اختاروا الإجابة المناسبة — وشكراً لوجودكم في يومنا الخاص.',
     deadline: 'نرجو الرد قبل ١ حزيران ٢٠٢٧',
-    whatsappNumber: 'YOUR_WHATSAPP_NUMBER',
     acceptLabel: 'نعم، سأحضر',
     declineLabel: 'للأسف، لن أتمكن',
-    acceptMessage:
-      'مرحباً! آمال وأحمد، يسعدني حضور زفافكما في ٢٠ حزيران ٢٠٢٧. شكراً لدعوتكما!',
-    declineMessage:
-      'مرحباً! آمال وأحمد، للأسف لن أتمكن من حضور زفافكما في ٢٠ حزيران ٢٠٢٧. شكراً لدعوتكما!',
+    acceptThanksTitle: 'أهلاً وسهلاً بكم',
+    acceptThanksMessage:
+      'فرحتنا كبيرة بحضوركم. ننتظركم بكل حب في صالة روفانا.',
+    declineThanksTitle: 'شكراً لردّكم',
+    declineThanksMessage:
+      'نقدّر تواصلكم، ونتمنى لكم دوام الصحة والسعادة.',
   },
   closing: {
     eyebrow: 'بكل حب',

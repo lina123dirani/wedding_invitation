@@ -97,10 +97,9 @@
 
 .envelope__card-eyebrow {
   font-family: var(--font-label);
-  font-size: clamp(0.5rem, 1.6vw, 0.62rem);
-  font-weight: 500;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
+  font-size: clamp(0.78rem, 2vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
   color: #8a4f57;
   margin-bottom: 0.65rem;
 }
@@ -109,21 +108,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.1rem;
+  gap: 0.12rem;
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 400;
-  font-style: italic;
-  font-size: clamp(1.75rem, 7vw, 3rem);
-  line-height: 0.95;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  font-weight: 700;
+  font-size: clamp(2.15rem, 8vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
 }
 
 .envelope__card-amp {
-  font-size: 0.42em;
+  font-size: 0.48em;
+  font-weight: 600;
   color: #b89a72;
-  margin: 0.12rem 0;
+  margin: 0.16rem 0;
 }
 
 .envelope__card-rule {
@@ -135,9 +133,9 @@
 
 .envelope__card-date {
   font-family: var(--font-label);
-  font-size: clamp(0.52rem, 1.5vw, 0.64rem);
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
+  font-size: clamp(0.85rem, 2.2vw, 1.05rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
   color: #5c2f36;
 }
 

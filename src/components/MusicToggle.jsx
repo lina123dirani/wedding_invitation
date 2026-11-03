@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import weddingData from '../data/weddingData'
 import '../styles/MusicToggle.css'
 
+/** Skip the quiet intro so music starts with audible sound. */
+const MUSIC_START_SECONDS = 10
+
 function MusicToggle() {
   const audioRef = useRef(null)
   const unlockedRef = useRef(false)
@@ -13,15 +16,41 @@ function MusicToggle() {
     if (!audio) return
 
     audio.volume = 0.55
+    audio.loop = false
 
-    const markPlaying = () => setIsPlaying(true)
+    const jumpToMusic = () => {
+      if (audio.currentTime < MUSIC_START_SECONDS) {
+        audio.currentTime = MUSIC_START_SECONDS
+      }
+    }
+
+    const markPlaying = () => {
+      jumpToMusic()
+      setIsPlaying(true)
+    }
     const markPaused = () => setIsPlaying(false)
 
+    const handleEnded = async () => {
+      audio.currentTime = MUSIC_START_SECONDS
+      try {
+        await audio.play()
+      } catch {
+        setIsPlaying(false)
+      }
+    }
+
+    const handleLoaded = () => {
+      audio.currentTime = MUSIC_START_SECONDS
+    }
+
+    audio.addEventListener('loadedmetadata', handleLoaded)
     audio.addEventListener('play', markPlaying)
     audio.addEventListener('pause', markPaused)
+    audio.addEventListener('ended', handleEnded)
 
     const tryPlay = async () => {
       if (unlockedRef.current) return
+      jumpToMusic()
       try {
         await audio.play()
         unlockedRef.current = true
@@ -32,6 +61,7 @@ function MusicToggle() {
 
     const unlockOnGesture = async () => {
       if (unlockedRef.current) return
+      jumpToMusic()
       try {
         await audio.play()
         unlockedRef.current = true
@@ -47,8 +77,10 @@ function MusicToggle() {
     window.addEventListener('keydown', unlockOnGesture)
 
     return () => {
+      audio.removeEventListener('loadedmetadata', handleLoaded)
       audio.removeEventListener('play', markPlaying)
       audio.removeEventListener('pause', markPaused)
+      audio.removeEventListener('ended', handleEnded)
       window.removeEventListener('pointerdown', unlockOnGesture)
       window.removeEventListener('keydown', unlockOnGesture)
     }
@@ -63,6 +95,10 @@ function MusicToggle() {
       return
     }
 
+    if (audio.currentTime < MUSIC_START_SECONDS) {
+      audio.currentTime = MUSIC_START_SECONDS
+    }
+
     try {
       await audio.play()
       unlockedRef.current = true
@@ -73,7 +109,7 @@ function MusicToggle() {
 
   return (
     <div className="music-toggle">
-      <audio ref={audioRef} src={images.weddingSong} loop preload="auto" />
+      <audio ref={audioRef} src={images.weddingSong} preload="auto" />
       <button
         type="button"
         className={`music-toggle__btn${isPlaying ? ' music-toggle__btn--on' : ''}`}

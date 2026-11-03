@@ -1,4 +1,4 @@
-/* Memories — editorial typography section (no photo grid) */
+﻿/* Memories — editorial typography section (no photo grid) */
 
 .gallery {
   position: relative;
@@ -63,7 +63,6 @@
   font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--color-dusty-rose);
   margin-bottom: clamp(0.85rem, 2.5vw, 1.15rem);
 }
@@ -71,11 +70,9 @@
 .gallery__title {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  font-weight: 400;
-  font-style: italic;
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: var(--tracking-title);
-  text-transform: uppercase;
   color: var(--color-burgundy);
 }
 
@@ -127,8 +124,7 @@
 .gallery__date-month {
   font-family: var(--font-label);
   font-size: clamp(0.62rem, 1.7vw, 0.72rem);
-  letter-spacing: 0.36em;
-  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
   color: var(--color-deep-rose);
 }
 
@@ -137,7 +133,7 @@
   font-size: clamp(1.75rem, 6vw, 2.75rem);
   font-style: italic;
   color: var(--color-burgundy);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-eyebrow);
 }
 
 .gallery__line {

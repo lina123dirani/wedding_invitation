@@ -3,9 +3,8 @@
 .ui-eyebrow {
   font-family: var(--font-label);
   font-size: var(--text-sm);
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: var(--tracking-eyebrow);
-  text-transform: uppercase;
   color: var(--color-muted);
   margin-bottom: clamp(0.9rem, 2.5vw, 1.25rem);
 }
@@ -13,20 +12,18 @@
 .ui-heading {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
-  font-weight: 400;
-  font-style: italic;
+  font-weight: 600;
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-title);
-  text-transform: uppercase;
   color: var(--color-burgundy);
 }
 
 .ui-body {
   font-family: var(--font-body);
   font-size: var(--text-lg);
-  font-weight: 400;
+  font-weight: 500;
   line-height: var(--leading-body);
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
   color: var(--color-muted);
 }
 
@@ -66,11 +63,10 @@
 
 .ui-btn__label {
   font-family: var(--font-label);
-  font-size: var(--text-sm);
-  font-weight: 500;
+  font-size: var(--text-md);
+  font-weight: 600;
   letter-spacing: var(--tracking-button);
-  text-transform: uppercase;
-  line-height: 1.35;
+  line-height: 1.4;
   text-align: center;
   transition: letter-spacing var(--duration-hover) var(--ease-elegant);
 }
@@ -84,7 +80,7 @@
 
 .ui-btn:hover:not(:disabled) .ui-btn__label,
 .ui-btn:focus-visible:not(:disabled) .ui-btn__label {
-  letter-spacing: 0.26em;
+  letter-spacing: 0.08em;
 }
 
 .ui-btn:focus-visible {
